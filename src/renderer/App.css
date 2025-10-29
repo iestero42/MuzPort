@@ -1,0 +1,416 @@
+/*
+ * =========================================
+ * ESTILO RETRO-MODERNO (SYNTHWAVE) - MUZPORT
+ * =========================================
+ */
+
+/* 1. Importar las fuentes retro y modernas */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Roboto:wght@400;700&display=swap');
+
+/* 2. Variables de Color (Neón) */
+:root {
+  --bg-dark-purple: #1A1A2E; /* Fondo principal */
+  --bg-mid-purple: #24243E;  /* Fondo de las "cajas" */
+  --border-muted: #3A3A5E;  /* Borde sutil */
+  --neon-pink: #F72585;     /* Acento principal (Spotify, Crear) */
+  --neon-cyan: #4CC9F0;     /* Acento secundario (Texto, Bordes) */
+  --text-light: #E0E0E0;    /* Texto principal */
+  --text-white: #FFFFFF;    /* Texto de cabeceras */
+}
+
+/* 3. Estilos Base del Body */
+body {
+  margin: 0;
+  /* Fuente moderna y limpia para el cuerpo */
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Helvetica, Arial, sans-serif;
+  background-color: var(--bg-dark-purple);
+  color: var(--text-light);
+  padding: 2rem;
+
+  /* Efecto sutil de "líneas de escaneo" de TV antigua */
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px
+  );
+  background-size: 1px 2px;
+
+  /* Ocultar scrollbars */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* 4. Cabecera (Header) */
+.header {
+  text-align: center;
+  border-bottom: 2px solid var(--neon-cyan);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  /* Fuente retro-tech para el título */
+  font-family: 'Audiowide', sans-serif;
+  color: var(--neon-pink);
+  font-size: 2.75rem;
+  /* Efecto de "brillo de neón" */
+  text-shadow: 0 0 5px var(--neon-pink), 0 0 10px var(--neon-pink),
+    0 0 15px rgba(247, 37, 133, 0.5);
+}
+
+.header p {
+  color: var(--neon-cyan);
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+}
+
+/* 5. Cajas de Pasos (.step) */
+.step {
+  background-color: var(--bg-mid-purple);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-muted);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  /* Transición para cuando aparezcan los filtros */
+  transition: all 0.3s ease;
+}
+
+.step h2 {
+  /* Fuente retro-tech para todos los subtítulos */
+  font-family: 'Audiowide', sans-serif;
+  margin-top: 0;
+  border-bottom: 1px solid var(--neon-cyan);
+  padding-bottom: 0.5rem;
+  color: var(--text-white);
+  text-shadow: 0 0 3px var(--neon-cyan);
+}
+
+/* 6. Botones (Estilo Neón) */
+button {
+  font-size: 1rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 6px; /* Ligeramente más "tech" que redondo */
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-transform: uppercase; /* Estilo 80s */
+  letter-spacing: 1px;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-2px); /* Efecto "lift" */
+  /* Brillo que coge el color del botón */
+  box-shadow: 0 0 10px currentColor, 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* Botones principales (Spotify, Crear) */
+.button-spotify,
+.button-primary {
+  background-color: var(--neon-pink);
+  color: var(--text-white);
+  border-color: var(--neon-pink);
+}
+.button-spotify:hover:not(:disabled),
+.button-primary:hover:not(:disabled) {
+  background-color: #ff4daa; /* Rosa más brillante */
+}
+
+/* Botón secundario (Abrir Carpeta) - Estilo "Ghost" */
+.button-secondary {
+  background-color: transparent;
+  color: var(--neon-cyan);
+  border-color: var(--neon-cyan);
+}
+.button-secondary:hover:not(:disabled) {
+  background-color: rgba(76, 201, 240, 0.1); /* Relleno cian sutil */
+}
+
+/* 7. Entradas (Inputs) y Filtros */
+.input-playlist,
+.input-filter {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-muted);
+  background-color: var(--bg-dark-purple); /* Fondo principal */
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  font-family: 'Roboto', sans-serif;
+  transition: all 0.2s ease;
+}
+
+.input-playlist:focus,
+.input-filter:focus {
+  outline: none;
+  border-color: var(--neon-pink); /* Foco rosa */
+  box-shadow: 0 0 10px var(--neon-pink); /* Brillo rosa al escribir */
+}
+
+.input-playlist:disabled,
+.input-filter:disabled {
+  opacity: 0.5;
+}
+
+.filter-grid {
+  display: flex;
+  flex-wrap: wrap; /* Para móviles */
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.input-filter {
+  flex: 1;
+  min-width: 150px; /* Ancho mínimo para que no se aplasten */
+  font-size: 0.9rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0; /* Ya tiene gap */
+}
+
+/*
+ * =========================================
+ * 8. LISTA DE CANCIONES (VIRTUALIZADA)
+ * =========================================
+ */
+
+.status-success {
+  color: var(--neon-cyan); /* Verde Spotify -> Cian Neón */
+  font-weight: bold;
+}
+
+/* Contenedor para react-window */
+.track-list-detailed {
+  height: 200px; /* Altura fija para la lista virtual */
+  background-color: var(--bg-dark-purple);
+  border: 1px solid var(--border-muted);
+  border-radius: 4px;
+}
+
+/* Estilo para CADA FILA (Row) renderizada por react-window */
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border-muted);
+  box-sizing: border-box; /* Importante para que itemSize sea preciso */
+}
+
+/* Mensaje de 'no hay canciones' */
+.list-item-empty {
+  padding: 1rem;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Info de la canción (Texto) */
+.track-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Ocupa el espacio */
+  overflow: hidden; /* Evita que el texto se salga */
+}
+
+.track-info strong {
+  color: var(--text-white);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+.track-info small {
+  color: var(--neon-cyan);
+  opacity: 0.8;
+  font-size: 0.8rem;
+  margin-top: 2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* Contenedor de los botones de acción */
+.track-actions {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+/* Estilo unificado para los 3 botones de la lista */
+.button-preview,
+.button-edit,
+.button-remove {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+  margin-left: 0.25rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+  line-height: 1;
+}
+
+/* Colores y tamaños específicos */
+.button-preview,
+.button-edit {
+  color: var(--neon-cyan);
+}
+
+.button-remove {
+  color: var(--neon-pink);
+  font-size: 2rem; /* La 'X' más grande */
+}
+
+/* Efectos hover unificados */
+.button-preview:hover,
+.button-edit:hover,
+.button-remove:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.button-preview:hover,
+.button-edit:hover {
+  text-shadow: 0 0 5px var(--neon-cyan);
+}
+.button-remove:hover {
+  text-shadow: 0 0 5px var(--neon-pink);
+}
+
+/*
+ * =========================================
+ * 9. MODAL DE EDICIÓN
+ * =========================================
+ */
+
+.modal-overlay {
+  position: fixed; /* Se superpone a todo */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(18, 18, 18, 0.85); /* Fondo oscuro translúcido */
+  backdrop-filter: blur(5px); /* Efecto "vidrio esmerilado" */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté por encima de todo */
+}
+
+.modal-content {
+  background-color: var(--bg-mid-purple);
+  padding: 2rem;
+  border-radius: 8px;
+  border: 1px solid var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan); /* Brillo cian */
+  width: 90%;
+  max-width: 500px;
+  z-index: 1001;
+
+  /* Animación de entrada */
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  font-family: 'Audiowide', sans-serif;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 3px var(--neon-cyan);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+.input-modal {
+  /* Reusa el estilo de los filtros, pero con 100% de ancho */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--border-muted);
+  background-color: var(--bg-dark-purple);
+  color: var(--text-light);
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-modal:focus {
+  outline: none;
+  border-color: var(--neon-pink);
+  box-shadow: 0 0 10px var(--neon-pink);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end; /* Alinea botones a la derecha */
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/*
+ * =========================================
+ * 10. ESTILO DE SCROLLBAR (NEÓN)
+ * =========================================
+ */
+
+/* La barra de scroll completa */
+::-webkit-scrollbar {
+  width: 8px; /* Hazla más fina */
+}
+
+/* El fondo (el "track" por donde se mueve) */
+::-webkit-scrollbar-track {
+  background: var(--bg-dark-purple); /* Fondo a juego con la app */
+  border-radius: 4px;
+}
+
+/* El "mango" (la parte que arrastras) */
+::-webkit-scrollbar-thumb {
+  background-color: var(--neon-cyan); /* Color cian */
+  border-radius: 4px;
+  /* Un borde sutil para que destaque del fondo */
+  border: 1px solid var(--bg-dark-purple); 
+}
+
+/* El "mango" al pasar el ratón por encima */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--neon-pink); /* ¡Se vuelve rosa! */
+  box-shadow: 0 0 5px var(--neon-pink);
+}
