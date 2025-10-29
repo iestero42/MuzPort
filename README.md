@@ -18,7 +18,6 @@ MUZPORT es una herramienta de "curación" de música que te da control total sob
 
 * **Escaner de Biblioteca:** Escanea miles de archivos de música (`.mp3`, `.flac`, `.m4a`) en segundos.
 * **Lectura de Metadatos:** Lee los tags ID3 (Artista, Título, Género, Año) de cada archivo.
-* **¡Parsing Inteligente de Nombres!:** Si tus tags están corruptos (ej. "Artista Desconocido"), MUZPORT **analiza el nombre del archivo** (ej. `01-Queen-Bohemian_Rhapsody.mp3`) para adivinar la información correcta.
 * **Filtrado Potente:** Filtra tu colección al instante por artista, género o año.
 * **Curación Manual Completa:**
     * **▶️ Previsualizar:** Escucha cualquier canción directamente (usando el reproductor nativo de tu SO) para identificarla.
